@@ -9,12 +9,12 @@ import { Button, ButtonText } from '@/components/ui/button';
 export default function HomeScreen() {
   return (
     <View>
-      <Button action="positive">
-        <ButtonText>Hello</ButtonText>
-      </Button>
       <FlatList
         data={products}
-        renderItem={({ item }) => <ProductCard item={item} />}
+        renderItem={({ item }) => <ProductCard {...item} />}
+        numColumns={2}
+        contentContainerClassName='gap-2'
+        columnWrapperClassName='gap-2'
       />
     </View>
   );
