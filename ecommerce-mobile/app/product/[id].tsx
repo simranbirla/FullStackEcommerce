@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from '@/components/ui/text'
-import { useLocalSearchParams } from 'expo-router'
+import { Stack, useLocalSearchParams } from 'expo-router'
 import products from '@/assets/products.json'
 import { VStack } from '@/components/ui/vstack'
 import { Box } from "@/components/ui/box";
@@ -21,7 +21,8 @@ const details = () => {
     }
 
     return (
-        <Card className="p-5 rounded-lg max-w-[560px] flex-1">
+        <Card className="p-5 rounded-lg mx-auto max-w-[560px] w-full my-5 lg:max-w-[80%] flex-1">
+            <Stack.Screen options={{ title: product.name, headerTitleAlign: "center" }} />
             <Image
                 source={{
                     uri: product.image
