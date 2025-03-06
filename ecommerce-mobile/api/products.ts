@@ -5,7 +5,17 @@ export const getProducts = async () => {
     const data = await res.json()
 
     if (!res.ok) {
-        throw new Error('Error caugh')
+        throw new Error('Error caught')
+    }
+    return data
+}
+
+export const fetchProductsById = async (id: number) => {
+    const res = await fetch(`${API_URL}/products/${id}`)
+    const data = await res.json()
+
+    if (!res.ok) {
+        throw new Error('Error caught')
     }
     return data
 }
