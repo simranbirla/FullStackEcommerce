@@ -1,9 +1,5 @@
-import { Image, StyleSheet, Platform, View, FlatList, Text } from 'react-native';
+import { StyleSheet, View, FlatList, } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
 import products from '../assets/products.json'
 import ProductCard from '@/components/ProductCard';
 

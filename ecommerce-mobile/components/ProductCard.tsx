@@ -1,6 +1,16 @@
 import { Text } from 'react-native';
 
-const ProductCard = ({ item }) => {
+export type TProductCard = {
+    item: {
+        "id": number
+        "name": string
+        "description": string
+        "image": string,
+        "price": number
+    }
+}
+
+const ProductCard = ({ item }: TProductCard) => {
 
     return <Text style={{ color: "white" }}>{item.name}</Text>
 }
