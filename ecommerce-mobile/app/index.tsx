@@ -1,13 +1,18 @@
-import { StyleSheet, View, FlatList, Platform, useWindowDimensions, } from 'react-native';
+import { StyleSheet, View, FlatList, Platform, useWindowDimensions, ActivityIndicator, } from 'react-native';
 
-import products from '../assets/products.json'
 import ProductCard from '@/components/ProductCard';
-import { Text } from '@/components/ui/text';
 import { useBreakpointValue } from '@/components/ui/utils/use-break-point-value';
+import { getProducts } from '@/api/products';
+import { useQuery } from '@tanstack/react-query';
+import { Text } from '@/components/ui/text';
 
 
 
 export default function HomeScreen() {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['products'],
+    queryFn: getProducts
+  })
 
   const numColumns = useBreakpointValue({
     default: 2,
@@ -15,11 +20,20 @@ export default function HomeScreen() {
     xl: 4,
   });
 
+
+  if (isLoading) {
+    return <ActivityIndicator />
+  }
+
+  if (error) {
+    return <Text>Error while fetching the products</Text>
+  }
+
   return (
     <View className='flex-1'>
       <FlatList
         key={numColumns}
-        data={products}
+        data={data}
         numColumns={numColumns}
         contentContainerClassName="gap-2 max-w-[960px] mx-auto w-full"
         columnWrapperClassName="gap-2"
