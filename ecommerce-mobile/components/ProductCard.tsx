@@ -12,7 +12,7 @@ export type TProductCard = {
 
 const ProductCard = ({ item }: TProductCard) => {
 
-    return <Text style={{ color: "white" }}>{item.name}</Text>
+    return <Text>{item.name}</Text>
 }
 
 export default ProductCard
